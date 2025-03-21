@@ -15,7 +15,9 @@ conexao.connect()
 .then(() => {
     console.log("Conectado ao PostgreSQL");
     inicializarBanco();
-})
+    pessoaInsert("Felipe");
+    usuarioInsert("Felipe", "felipe@gmail.com");
+}).catch(err => console.error("Error de conexão: ", err));
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');

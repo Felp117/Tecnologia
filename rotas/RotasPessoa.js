@@ -14,10 +14,16 @@ app.get('/pessoa', async (req, res) => {
     res.send(buscarPessoa());
 })
 
-app.get('pessoa/atualizar', async(req, res) => {
+app.get('/pessoa/atualizar', async(req, res) => {
     let resposta = await atualizarPessoa();
     console.log(resposta);
     res.send(atualizarPessoa());
 })
 
-app.get
+app.get('/pessoa/deletar', async(req, res) => {
+    let resposta = await deletarPessoa();
+    console.log(resposta);
+    res.send(deletarPessoa());
+})
+
+

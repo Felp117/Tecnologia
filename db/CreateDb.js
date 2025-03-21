@@ -1,4 +1,3 @@
-
 function inicializarBanco() {
     const querires = [
         `CREATE TABLE IF NOT EXISTS usuario (
