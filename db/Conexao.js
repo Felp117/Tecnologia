@@ -1,9 +1,9 @@
 const express = require('express');
-const { pool } = require("pg");
+const { Pool } = require("pg");
+const { inicializarBanco } = require('./CreateDb');
 const app = express();
-app.use(express.static('public'));
 
-const conexao = new pool({
+const conexao = new Pool({
     host: "localhost",
     user: "postgres",
     password: "123",
@@ -14,10 +14,8 @@ const conexao = new pool({
 conexao.connect()
 .then(() => {
     console.log("Conectado ao PostgreSQL");
-    inicializarBanco();
-    pessoaInsert("Felipe");
-    usuarioInsert("Felipe", "felipe@gmail.com");
-}).catch(err => console.error("Error de conexão: ", err));
+    inicializarBanco(conexao);
+})
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');

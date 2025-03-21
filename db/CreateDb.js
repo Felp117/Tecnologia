@@ -1,4 +1,4 @@
-function inicializarBanco() {
+exports.inicializarBanco= (conexao)  => {
     const querires = [
         `CREATE TABLE IF NOT EXISTS usuario (
         id SERIAL PRIMARY KEY,
